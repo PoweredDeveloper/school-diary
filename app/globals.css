@@ -11,7 +11,7 @@
 
 @layer components {
   .accent-btn {
-    @apply px-30 py-14 bg-foreground rounded-2xl text-background text-2xl font-semibold
+    @apply px-8 py-4 bg-foreground rounded-2xl text-background text-2xl font-semibold
   }
 }
 
