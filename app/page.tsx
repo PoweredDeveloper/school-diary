@@ -1,3 +1,10 @@
+/**
+ * ================ D I A R Y ================
+ * Script written by Istomin Mikhail
+ * PoweredDeveloper <https://github.com/PoweredDeveloper>
+ * Repository <https://github.com/PoweredDeveloper/school-diary>
+ */
+
 import Image from "next/image";
 
 export default function Home() {

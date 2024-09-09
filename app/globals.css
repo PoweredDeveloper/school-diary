@@ -1,24 +1,37 @@
+/**
+ * ================ D I A R Y ================
+ * Script written by Istomin Mikhail
+ * PoweredDeveloper <https://github.com/PoweredDeveloper>
+ * Repository <https://github.com/PoweredDeveloper/school-diary>
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer components {
+  .accent-btn {
+    @apply px-30 py-14 bg-foreground rounded-2xl text-background text-2xl font-semibold
+  }
 }
 
-@media (prefers-color-scheme: dark) {
+:root {
+  --background: #171717;
+  --foreground: #D9D9D9;
+}
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
-body {
+/* body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 @layer utilities {
   .text-balance {
