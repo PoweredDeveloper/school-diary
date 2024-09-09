@@ -34,11 +34,11 @@ const headerLinks: HeaderLinkType[] = [
 
 export default function Header() {
     return (
-        <header className='flex-initial p-24 flex justify-between items-center'>
-            <Image className='text-foreground h-4' src={diaryLogo} alt="School Diary" />
+        <header className='flex-initial p-12 flex justify-between items-center'>
+            <Image className='text-foreground h-7' src={diaryLogo} alt="School Diary" />
             <ul className='flex gap-24'>
                 {headerLinks.map((link: HeaderLinkType, index: number) => (
-                    <li key={index} className='text-base text-foreground font-semibold no-underline transition-colors'><Link href={link.link}>{link.title}</Link></li>
+                    <li key={index} className='underline-btn text-base text-foreground font-semibold no-underline transition-colors'><Link href={link.link}>{link.title}</Link></li>
                 ))}
             </ul>
             <Link href='/signin' className='accent-btn' >Вход</Link>
