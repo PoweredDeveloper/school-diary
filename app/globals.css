@@ -11,9 +11,18 @@
 
 @layer components {
   /* Background */
-  .body-bg::before {
-    @apply absolute bottom-0 right-0 w-[200%] pt-[200%] mt-[-100%] ml-[-100%];
-    background: radial-gradient(circle, rgba(118,166,255,1) 0%, rgba(0,0,0,0) 100%);
+  .body-bg:before {
+    @apply absolute bottom-0 right-0 w-full h-full;
+    z-index: -1;
+    background: radial-gradient(farthest-corner at 100% 100%, rgba(118,166,255,0.2) 0%, rgba(0,0,0,0) 60%);
+    content: "";
+  }
+
+  .body-bg:after {
+    @apply absolute top-0 left-0 w-full h-full;
+    z-index: -1;
+    background: radial-gradient(circle at 3.8% 7%, rgba(179, 179, 179, 0.1) 0%, rgba(0,0,0,0) 60%);
+    content: "";
   }
 
   .body-bg {
