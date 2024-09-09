@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${commissioner.className} antialiased`}
+        className={`body-bg ${commissioner.className} antialiased`}
       >
         <Header />
         {children}
