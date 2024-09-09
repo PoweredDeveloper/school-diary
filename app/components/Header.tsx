@@ -37,8 +37,8 @@ export default function Header() {
         <header className='flex-initial p-10 flex justify-between items-center'>
             <Image className='text-foreground' src={diaryLogo} alt="School Diary" />
             <ul className='flex gap-24'>
-                {headerLinks.map((link: HeaderLinkType) => (
-                    <li className='text-2xl text-foreground font-semibold no-underline border-0 border-foreground hover:border-2'><Link href={link.link}>{link.title}</Link></li>
+                {headerLinks.map((link: HeaderLinkType, index: number) => (
+                    <li key={index} className='text-2xl text-foreground font-semibold no-underline border-0 border-foreground hover:border-2'><Link href={link.link}>{link.title}</Link></li>
                 ))}
             </ul>
             <Link href='/signin' className='accent-btn' >Вход</Link>
