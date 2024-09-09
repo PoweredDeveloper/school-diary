@@ -10,8 +10,37 @@
 @tailwind utilities;
 
 @layer components {
+  /* Background */
+  .body-bg::before {
+    @apply absolute bottom-0 right-0 w-[200%] pt-[200%] mt-[-100%] ml-[-100%];
+    background: radial-gradient(circle, rgba(118,166,255,1) 0%, rgba(0,0,0,0) 100%);
+  }
+
+  .body-bg {
+    @apply h-screen flex flex-col bg-background ;
+  }
+
   .accent-btn {
-    @apply px-8 py-4 bg-foreground rounded-2xl text-background text-2xl font-semibold
+    @apply px-4 py-2 bg-foreground rounded-lg text-background text-base font-semibold;
+  }
+
+  /* Underline Button */
+  .underline-btn {
+    @apply relative cursor-pointer font-semibold;
+  }
+
+  .underline-btn:after {
+    @apply absolute w-full left-0 bg-foreground scale-x-0 rounded-full;
+    content: '';
+    height: 2px;
+    bottom: -3px;
+    transform-origin: bottom right;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .underline-btn:hover:after {
+    @apply scale-x-[1] cursor-pointer;
+    transform-origin: bottom left;
   }
 }
 
