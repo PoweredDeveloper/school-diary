@@ -5,12 +5,21 @@
  * Repository <https://github.com/PoweredDeveloper/school-diary>
  */
 
-import React from 'react';
+'use client'
+
+import React, { useState } from 'react';
+
+// Nextjs
 import Image from 'next/image';
 import Link from 'next/link'
+import { usePathname } from 'next/navigation';
 
-// Images
+// HeadlessUI
+import { Dialog, DialogPanel } from '@headlessui/react';
+
+// Images & Icons
 import diaryLogo from '@/app/assets/logo.svg';
+import { RxHamburgerMenu, RxCross2 } from 'react-icons/rx'
 
 type HeaderLinkType = {
     title: string,
@@ -23,7 +32,7 @@ const headerLinks: HeaderLinkType[] = [
         link: '/schedule'
     },
     {
-        title: "Домашнее задание",
+        title: "Домашнее Задание",
         link: '/homework'
     },
     {
@@ -33,15 +42,51 @@ const headerLinks: HeaderLinkType[] = [
 ]
 
 export default function Header() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
+    const pathname = usePathname()
+
     return (
-        <header className='flex-initial p-12 flex justify-between items-center'>
-            <Image className='text-foreground h-7' src={diaryLogo} alt="School Diary" />
-            <ul className='flex gap-24'>
-                {headerLinks.map((link: HeaderLinkType, index: number) => (
-                    <li key={index} className='underline-btn text-base text-foreground font-semibold no-underline transition-colors'><Link href={link.link}>{link.title}</Link></li>
-                ))}
-            </ul>
-            <Link href='/signin' className='accent-btn' >Вход</Link>
+        <header className='flex-initial'>
+            <nav className='p-8 lg:px-16 lg:py-12 flex justify-between items-center mx-auto'>
+                <Image className='text-foreground h-8 hover:cursor-pointer' src={diaryLogo} alt="School Diary" />
+                <ul className='hidden gap-24 lg:flex'>
+                    {headerLinks.map((link: HeaderLinkType, index: number) => (
+                        <li key={index} className={`underline-btn text-xl text-foreground font-semibold no-underline transition-colors ${link.link == pathname && "after:scale-x-[1]"}`}><Link href={link.link}>{link.title}</Link></li>
+                    ))}
+                </ul>
+                <Link href='/signin' className='accent-btn hidden lg:flex' >Вход</Link>
+                <button className='flex lg:hidden text-foreground' onClick={() => setMobileMenuOpen(true)}>
+                    <RxHamburgerMenu className='w-7 h-7' />
+                </button>
+            </nav>
+            <Dialog
+                as='div'
+                className='lg:hidden'
+                open={mobileMenuOpen}
+                onClose={setMobileMenuOpen}
+            >
+                <DialogPanel className='fixed right-0 w-full inset-y-0 bg-background md:border-l-[1px] border-foreground sm:max-w-sm overflow-y-auto' >
+                    <div className="flex items-center justify-between p-8">
+                        <Image className='text-foreground h-8 md:h-6 hover:cursor-pointer' src={diaryLogo} alt="School Diary" />
+                        <button
+                            type='button'
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            <RxCross2 className="h-6 w-6 text-foreground" />
+                        </button>
+                    </div>
+                    <div className='flow-root'>
+                        <div className='flex flex-col gap-5 mx-8 py-8 border-b-[1px] border-b-foreground'>
+                            {headerLinks.map((link: HeaderLinkType, index: number) => (
+                                <Link key={index} href={link.link} className={`text-foreground font-semibold text-2xl ${link.link == pathname && 'underline'}`}>{link.title.toUpperCase()}</Link>
+                            ))}
+                        </div>
+                        <div className='p-8 text-foreground'>
+                            <button>Вход</button>
+                        </div>
+                    </div>
+                </DialogPanel>
+            </Dialog>
         </header>
     );
 }
