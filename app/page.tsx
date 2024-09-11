@@ -14,7 +14,7 @@ const dela = localFont({ src: './fonts/DelaGothicOne.ttf' })
 
 export default function Home() {
   return (
-    <main className="flex-auto flex justify-center items-center">
+    <main className="flex-auto flex justify-center items-center body-bg">
       <div className="w-full h-full">
         {/* <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#525252] opacity-10 font-black text-[810px] tracking-widest">122</span> */}
         <div className="flex flex-col justify-center items-center h-full gap-4 md:gap-7 pb-7">

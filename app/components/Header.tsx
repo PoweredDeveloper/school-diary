@@ -48,7 +48,7 @@ export default function Header() {
     return (
         <header className='flex-initial'>
             <nav className='p-8 lg:px-16 lg:py-12 flex justify-between items-center mx-auto'>
-                <Image className='text-foreground h-8 hover:cursor-pointer' src={diaryLogo} alt="School Diary" />
+                <Link href='/' className='hover:cursor-pointer' ><Image className='text-foreground h-8' src={diaryLogo} alt="School Diary" /></Link>
                 <ul className='hidden gap-24 lg:flex'>
                     {headerLinks.map((link: HeaderLinkType, index: number) => (
                         <li key={index} className={`underline-btn text-xl text-foreground font-semibold no-underline transition-colors ${link.link == pathname && "after:scale-x-[1]"}`}><Link href={link.link}>{link.title}</Link></li>
@@ -67,7 +67,7 @@ export default function Header() {
             >
                 <DialogPanel className='fixed right-0 w-full inset-y-0 bg-background md:border-l-[1px] border-foreground sm:max-w-sm overflow-y-auto' >
                     <div className="flex items-center justify-between p-8">
-                        <Image className='text-foreground h-8 md:h-6 hover:cursor-pointer' src={diaryLogo} alt="School Diary" />
+                        <Link href='/' className='hover:cursor-pointer' ><Image className='text-foreground h-8 md:h-6' src={diaryLogo} alt="School Diary" /></Link>
                         <button
                             type='button'
                             onClick={() => setMobileMenuOpen(false)}
