@@ -5,7 +5,6 @@
  * Repository <https://github.com/PoweredDeveloper/school-diary>
  */
 
-import Image from "next/image";
 import Link from "next/link";
 import localFont from 'next/font/local'
 import { RxArrowRight } from "react-icons/rx";
