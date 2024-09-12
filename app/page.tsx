@@ -6,26 +6,35 @@
  */
 
 import Link from "next/link";
+import Image from "next/image";
 import localFont from 'next/font/local'
-import { RxArrowRight } from "react-icons/rx";
+import { Overpass } from 'next/font/google'
+import longArrow from '@/app/assets/longArrow.svg'
+import starIcon from '@/app/assets/star.svg'
 
-const literata = localFont({ src: './fonts/Literata.ttf' })
-const dela = localFont({ src: './fonts/DelaGothicOne.ttf' })
+const vetrino = localFont({ src: './fonts/Vetrino.otf' })
+const overpass = Overpass({ weight: ["400", "500"], subsets: ['latin', 'cyrillic-ext'] })
 
 export default function Home() {
   return (
     <main className="flex-auto flex justify-center items-center body-bg">
       <div className="w-full h-full">
-        {/* <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#525252] opacity-10 font-black text-[810px] tracking-widest">122</span> */}
-        <div className="flex flex-col justify-center items-center h-full gap-4 md:gap-7 pb-7">
-          <h1 className={`${literata.className} text-3xl md:text-6xl leading-normal lg:text-[80px] lg:leading-snug font-semibold text-center text-foreground`} ><span className="text-[#619AF0]">Удобный</span> и <span className="text-[#619AF0]">быстрый</span><br /> дневник с собой!</h1>
-          <h5 className={`lg:font-normal font-semibold text-base lg:text-xl text-foreground tracking-[1px] lg:tracking-[4px] ${dela.className}`}>Рассписание • чат • д/з</h5>
-          <Link href="/" className="accent-btn max-w-min flex justify-between items-center gap-2 md:gap-8 mt-9 md:mt-16 md:py-3 text-lg lg:text-xl">
-            <span className="tracking-[5px]">Начать</span>
-            <RxArrowRight className="flex md:hidden size-6" />
-            <svg className="hidden md:flex" width="128" height="16" viewBox="0 0 128 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M127.707 8.70711C128.098 8.31658 128.098 7.68342 127.707 7.29289L121.343 0.928932C120.953 0.538408 120.319 0.538408 119.929 0.928932C119.538 1.31946 119.538 1.95262 119.929 2.34315L125.586 8L119.929 13.6569C119.538 14.0474 119.538 14.6805 119.929 15.0711C120.319 15.4616 120.953 15.4616 121.343 15.0711L127.707 8.70711ZM0 9H127V7H0V9Z" fill="black"/>
-            </svg>
+        <div className="flex flex-col justify-center items-center md:items-start lg:items-center h-full gap-9 px-11 md:gap-7 pb-7 md:mr-[25%] lg:mr-0">
+          <div className="flex justify-center lg:items-center lg:justify-normal lg:gap-4 flex-row lg:flex-col">
+            <h1 className={`${vetrino.className} text-5xl md:text-6xl lg:text-[100px] lg:text-center text-left text-foreground`} >
+              <span className="text-accent">Удобный</span> и <span className="text-accent">быстрый</span><br />дневник с собой
+            </h1>
+            <Image className="lg:hidden block lg:self-auto self-end ml-3" src={starIcon} alt='|' />
+          </div>
+          <div className="block lg:hidden border-b-[1px] border-b-foreground w-full" />
+          <Image className="hidden lg:block" src={starIcon} alt='|' />
+          <h5 className={`font-normal text-center md:text-left lg:text-center text-base lg:text-xl text-foreground tracking-[1px] lg:tracking-[4px] ${overpass.className}`}>
+            Дневник • расписание • чат • д/з<br />
+            собраны в одном месте!
+          </h5>
+          <Link href="/" className="accent-btn flex justify-between items-center gap-5 md:gap-8 mt-9 md:mt-16 md:py-3 text-lg lg:text-xl">
+            <span className={`${overpass.className} tracking-[5px] mt-1`}>Начать</span>
+            <Image src={longArrow} alt="->" />
           </Link>
         </div>
       </div>
