@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main className="flex-auto flex justify-center items-center body-bg">
       <div className="w-full h-full">
-        <div className="flex flex-col justify-center items-center md:items-start lg:items-center h-full gap-9 px-11 md:gap-7 pb-7 md:mr-[25%] lg:mr-0">
+        <div className="flex flex-col justify-center items-center md:items-start lg:items-center h-full gap-9 px-11 md:pt-0 pt-6 md:gap-7 pb-7 md:mr-[25%] lg:mr-0">
           <div className="flex justify-center lg:items-center lg:justify-normal lg:gap-4 flex-row lg:flex-col">
             <h1 className={`${vetrino.className} text-5xl md:text-6xl lg:text-[100px] lg:text-center text-left text-foreground`} >
               <span className="text-accent">Удобный</span> и <span className="text-accent">быстрый</span><br />дневник с собой
