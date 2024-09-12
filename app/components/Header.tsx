@@ -84,9 +84,9 @@ export default function Header() {
                     <div className='flow-root'>
                         <div className='flex flex-col gap-5 mx-8 py-8 border-b-[1px] border-b-foreground'>
                             {headerLinks.map((link: HeaderLinkType, index: number) => (
-                                <div className='flex items-center gap-2'>
+                                <div className='flex items-center gap-2' key={index}>
                                     <Image src={starIcon} alt='|' className='h-4' />
-                                    <Link key={index} href={link.link} className={`text-foreground font-semibold text-2xl ${link.link == pathname && 'underline'}`}>{link.title.toUpperCase()}</Link>
+                                    <Link href={link.link} className={`text-foreground font-semibold text-2xl ${link.link == pathname && 'underline'}`}>{link.title.toUpperCase()}</Link>
                                 </div>
                             ))}
                         </div>
